@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+a, a:focus, a:visited {
+    color: #0288D1;
+}
+a:hover {
+	color: #F57C00;
+}
+
+.navbar-default {
+    background-color: transparent;
+}
+
+.navbar-fixed-top{
+	background-color:#216592;
+	background: -webkit-linear-gradient(left, #0D283C , #2571A3);
+	background: -o-linear-gradient(right, #0D283C, #2571A3);
+	background: -moz-linear-gradient(right, #0D283C, #2571A3);
+	background: linear-gradient(to right, #0D283C , #2571A3);
+}
+
+.status{
+	background-color: #2B80B9;
+}
