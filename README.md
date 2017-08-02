@@ -157,6 +157,8 @@ npm test -- test/api/transactions.js
 ```
 
 ## Contributions
+* [Isabella Dell](https://github.com/Isabello/)
+* [Oliver Beddows](https://github.com/karmacoma/)
 * [Mariusz Serek](https://github.com/4miners/)
 * [Lepetitjan](https://github.com/lepetitjan/)
 * [Seatrips](https://github.com/seatrips/)
