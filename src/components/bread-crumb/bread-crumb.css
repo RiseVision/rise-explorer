@@ -19,15 +19,16 @@
   border-radius: 0;
   margin-top: 20px;
   margin-bottom: 0;
+	color: #333333;
 }
 
 .breadcrumb > li a,
 .breadcrumb > li span {
-  color: #ccc;
+  color: #313131;
 }
 
 .breadcrumb > li a:hover {
-  color: #ccc;
+  color: #333333;
 }
 
 .breadcrumb > li + li:before {

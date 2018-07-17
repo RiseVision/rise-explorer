@@ -46,6 +46,7 @@ const BlockConstructor = function ($rootScope, $stateParams, $location, $http, b
 		}).then((resp) => {
 			if (resp.data.success) {
 				vm.block = resp.data.block;
+				vm.block.totalForged = vm.block.reward + vm.block.totalFee;
 			} else {
 				throw new Error('Block was not found!');
 			}

@@ -88,15 +88,15 @@ module.exports = function (config) {
 				},
 			],
 		},
-		LSKBTC: {
-			poloniex: [
-				'Poloniex',
-				'https://poloniex.com/public?command=returnTicker',
+		RISEBTC: {
+			rightbtc: [
+				'RightBTC',
+				'https://www.rightbtc.com/api/public/ticker/RISEBTC',
 				(res, cb) => {
-					if (res.error) {
+					if (!res.status.success) {
 						return cb(res.error);
 					}
-					return cb(null, safeRef(res, 'BTC_LSK.last'));
+					return cb(null, safeRef(res, 'result.last') || 0.00000500);
 				},
 			],
 		},

@@ -25,7 +25,7 @@ import './header.css';
 AppHeader.directive('mainHeader', ($socket, $rootScope, Header) => {
 	const HeaderLink = () => {
 		$rootScope.currency = {
-			symbol: 'LSK',
+			symbol: 'RISE',
 		};
 
 		$rootScope.showNethash = (hash) => {

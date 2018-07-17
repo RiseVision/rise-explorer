@@ -61,7 +61,7 @@ config.exchangeRates.updateInterval = 30000;
 
 // Configuration for different currency pairs, set false to disable pair
 // LSK/BTC pair, supported: poloniex
-config.exchangeRates.exchanges.LSK.BTC = 'poloniex';
+config.exchangeRates.exchanges.RISE.BTC = 'rightbtc';
 // BTC/USD pair, supported: bitfinex, bitstamp, btce
 config.exchangeRates.exchanges.BTC.USD = 'bitfinex';
 // BTC/EUR pair, supported: bitstamp, bitmarket

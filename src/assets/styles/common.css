@@ -46,7 +46,7 @@ html, body {
 }
 
 body {
-    background-color: #013165;
+    background-color: #fafafa;
 }
 
 .splash-screen {
@@ -60,8 +60,8 @@ body {
 }
 
 .background-stripes {
-    background-color: #013165;
-    background-image: linear-gradient(109deg,#00335d,#001a56);
+    background-color: #fafafa;
+    /*background-image: linear-gradient(109deg,#00335d,#001a56);*/
     overflow: hidden;
     height: 100%;
     width: 100%;
@@ -75,10 +75,11 @@ body {
 .background-stripes,
 .stripe {
     position: absolute;
+	opacity:0.2;
 }
 
 .stripe:first-child {
-    background-image:linear-gradient(4deg,#002759 5%,#002667 87%);
+    background-image:linear-gradient(4deg,#3CBC93 5%,#3CBC93 87%);
     opacity:1;
     top:23.7rem;
     height:.45rem;
@@ -87,7 +88,7 @@ body {
 }
 
 .stripe:nth-child(2) {
-    background-image:linear-gradient(180deg,#003986 1%,#00305c 95%);
+    background-image:linear-gradient(180deg,#4098D2 1%,#4098D2 95%);
     opacity:.8;
     top:37.5rem;
     height:6rem;
@@ -96,7 +97,7 @@ body {
 }
 
 .stripe:nth-child(3) {
-    background-image:linear-gradient(-44deg,#0057b8,#003061 98%);
+    background-image:linear-gradient(-44deg,#F39253,#F39253 98%);
     opacity:1;
     top:43.5rem;
     height:.45rem;
@@ -105,7 +106,7 @@ body {
 }
 
 .stripe:nth-child(4) {
-    background-image:linear-gradient(180deg,#003986 1%,#00305c 95%);
+    background-image:linear-gradient(180deg,#E43E55 1%,#E43E55 95%);
     opacity:.8;
     top:43.95rem;
     height:6rem;
@@ -114,7 +115,7 @@ body {
 }
 
 .stripe:nth-child(5) {
-    background-image:linear-gradient(243deg,rgba(0,28,86,0) 6%,rgba(0,36,88,.18) 43%,#0b3b67 73%,#005ea0 99%);
+    background-image:linear-gradient(243deg,#8253A0 6%,#8253A0 43%,#8253A0 73%,#8253A0 99%);
     opacity:1;
     top:61.95rem;
     height:34.5rem;
@@ -123,7 +124,7 @@ body {
 }
 
 .stripe:nth-child(6) {
-    background-image:linear-gradient(243deg,transparent 6%,#002e5b 64%,transparent 77%,transparent 98%);
+    background-image:linear-gradient(243deg,transparent 6%,#4098D2 64%,transparent 77%,transparent 98%);
     opacity:.8;
     top:68.1rem;
     height:28.5rem;
@@ -137,7 +138,7 @@ body {
 }
 
 .stripe:nth-child(7) ,.stripe:nth-child(8) {
-    background-image:linear-gradient(-120deg,#003767 19%,#002e5d 30%,#00285a 45%,rgba(0,38,103,.3) 90%);
+    background-image:linear-gradient(-120deg,#F39253 19%,#F39253 30%,#F39253 45%,rgba(0,38,103,.3) 90%);
     opacity:1;
     height:.6rem;
     right:-1.66666%;
@@ -149,7 +150,7 @@ body {
 }
 
 .stripe:nth-child(9) {
-    background-image:linear-gradient(180deg,rgba(0,83,140,.3) 11%,#00266f 87%);
+    background-image:linear-gradient(180deg,#4098D2 11%,#4098D2 87%);
     opacity:.6;
     top:117rem;
     height:33rem;
@@ -158,7 +159,7 @@ body {
 }
 
 .stripe:nth-child(10) {
-    background-image:linear-gradient(106deg,rgba(0,96,156,.3) 11%,#004880 19%,transparent 87%);
+    background-image:linear-gradient(106deg,#4098D2 11%,#4098D2 58%,transparent 87%);
     opacity:.8;
     top:117rem;
     height:9rem;
@@ -167,7 +168,7 @@ body {
 }
 
 .stripe:nth-child(11) {
-    background-image:linear-gradient(29deg,#007dbb 15%,#00417c 38%,#003372 66%,transparent);
+    background-image:linear-gradient(29deg,#F39253 15%,#F39253 38%,#F39253 66%,transparent);
     opacity:.8;
     top:130.5rem;
     height:1.5rem;
@@ -176,7 +177,7 @@ body {
 }
 
 .stripe:nth-child(12) {
-    background-image:linear-gradient(16deg,transparent 19%,#004780 29%,#00437d 39%,#003877 61%,#005c97);
+    background-image:linear-gradient(16deg,transparent 19%,#3CBC93 29%,#3CBC93 39%,#3CBC93 61%,#3CBC93);
     opacity:.8;
     top:120rem;
     height:.75rem;
