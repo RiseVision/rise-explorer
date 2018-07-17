@@ -108,7 +108,7 @@
 			<div class="flex-container">
 				<span class="height"><b>Height:</b> {{blockStatus.height | number:0}}</span>
 				<span class="supply"><b>Supply:</b> {{blockStatus.supply | lisk | number:0}}</span>
-				<span class="lisk-btc"><b>RISE/BTC:</b> {{currency.tickers.RISE.BTC || 'N/A'}}</span>
+				<span class="lisk-btc"><b>RISE/BTC:</b> {{(currency.tickers.RISE.BTC | number:8 )|| 'N/A' }}</span>
 				<span class="lisk-usd"><b>RISE/{{currency.tickers.RISE[currency.symbol] && currency.symbol !== 'BTC' ? currency.symbol : 'USD'}}:</b> {{currency.tickers.RISE[currency.symbol] && currency.symbol !== 'BTC' ? (currency.tickers.RISE[currency.symbol] | number:4) : (currency.tickers.RISE.USD | number:4) || 'N/A'}}</span>
 			</div>
 		</div>

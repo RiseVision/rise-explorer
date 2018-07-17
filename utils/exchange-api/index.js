@@ -96,7 +96,7 @@ module.exports = function (config) {
 					if (!res.status.success) {
 						return cb(res.error);
 					}
-					return cb(null, safeRef(res, 'result.last') || 0.00000500);
+					return cb(null, (safeRef(res, 'result.last') || 0) / 1e8);
 				},
 			],
 		},
