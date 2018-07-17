@@ -41,7 +41,7 @@
   "dependencies": {
     "amstock3": "github:amcharts/amstock3",
     "angular": "<=1.6.10",
-    "angular-advanced-searchbox": "github:reyraa/angular-advanced-searchbox",
+    "angular-advanced-searchbox": "^3.0.1",
     "angular-animate": "^1.6.4",
     "angular-gettext": "^2.3.9",
     "angular-naturalsort": "https://github.com/isabello/angular-naturalsort.git",
