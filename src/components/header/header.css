@@ -15,6 +15,7 @@
  */
 #header {
   min-height: 65px;
+	background: #363238;
 }
 
 .navbar-fixed-top {
@@ -51,15 +52,15 @@
   height: 50px;
 }
 
-.logo-wrapper .coinName {
-	font-size: 28px;
-	line-height: 44px;
-	vertical-align: middle;
-	font-family: 'Roboto', 'Ubuntu', sans-serif;
-	color: #fafafa;
-	font-weight:lighter;
-	padding-right: 15px;
-}
+/*.logo-wrapper .coinName {*/
+	/*font-size: 28px;*/
+	/*line-height: 44px;*/
+	/*vertical-align: middle;*/
+	/*font-family: 'Roboto', 'Ubuntu', sans-serif;*/
+	/*color: #fafafa;*/
+	/*font-weight:lighter;*/
+	/*padding-right: 15px;*/
+/*}*/
 
 .logo-wrapper .nethash
 {
@@ -91,7 +92,8 @@
   margin-left: 10px;
   position: relative;
   outline: none;
-  background: #013165;
+  background: rgba(48, 44, 50, 0.8);
+	border: 1px solid rgba(255,255,255, 0.5);
   min-width: 50px;
   float: right;
   transition: all ease 300ms;
@@ -136,7 +138,7 @@
   box-shadow: none;
   font-size: 16px;
   line-height: 22px;
-  color: #74869b;
+  color: #fafafa;
   border: 0;
   border-radius: 0;
   vertical-align: middle;
@@ -162,13 +164,13 @@
 }
 
 #search::-webkit-input-placeholder {
-  color: #74869b;
+  color: #fafafa;
   font-size: 14px;
   font-family: 'Roboto', 'Ubuntu', sans-serif;
 }
 
 #search::-moz-placeholder {
-  color: #74869b;
+  color: #fafafa;
   font-size: 14px;
   font-family: 'Roboto', 'Ubuntu', sans-serif;
 }
@@ -205,7 +207,7 @@
 .navbar-default .navbar-nav > li.open > a,
 .navbar-default .navbar-nav > li a:hover,
 .navbar-default .navbar-nav > li a:focus {
-  background-color: #002449 !important;
+  background-color: transparent !important;
   font-family: Open Sans, sans-serif;
 }
 
@@ -213,11 +215,11 @@
   width: 100%;
   position: relative;
   z-index: 1;
-  background-color: rgb(1, 56, 115);
+  background-color: rgba(48, 44, 50, 1);
 }
 
 .navbar-fixed-top .network-status .flex-container {
-  background: rgb(1, 56, 115);
+  background: rgba(48, 44, 50, 1);
   padding: 8px 12px;
   border-radius: 0 0 3px 3px;
   margin: 0;
@@ -229,7 +231,7 @@
 }
 
 .navbar-fixed-top .main-header {
-  background: #002449;
+  background: #363238;
   position: relative;
   z-index: 2;
 }

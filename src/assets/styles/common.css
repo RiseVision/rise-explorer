@@ -57,133 +57,12 @@ body {
     top: 0;
     z-index: -1;
     overflow: hidden;
+	background-image: url('../img/bg.png');
+	background-color: #333035;
+	background-size: cover;
 }
 
-.background-stripes {
-    background-color: #fafafa;
-    /*background-image: linear-gradient(109deg,#00335d,#001a56);*/
-    overflow: hidden;
-    height: 100%;
-    width: 100%;
-    pointer-events: none;
-    -webkit-transform: skewY(21deg) translateZ(0);
-    transform: skewY(21deg) translateZ(0);
-    -webkit-transform-origin: right top;
-    transform-origin: right top;
-}
 
-.background-stripes,
-.stripe {
-    position: absolute;
-	opacity:0.2;
-}
-
-.stripe:first-child {
-    background-image:linear-gradient(4deg,#3CBC93 5%,#3CBC93 87%);
-    opacity:1;
-    top:23.7rem;
-    height:.45rem;
-    width:61.5%;
-    right:-1.66666%;
-}
-
-.stripe:nth-child(2) {
-    background-image:linear-gradient(180deg,#4098D2 1%,#4098D2 95%);
-    opacity:.8;
-    top:37.5rem;
-    height:6rem;
-    width:152.49999%;
-    right:-1.66666%;
-}
-
-.stripe:nth-child(3) {
-    background-image:linear-gradient(-44deg,#F39253,#F39253 98%);
-    opacity:1;
-    top:43.5rem;
-    height:.45rem;
-    width:106.5%;
-    right:-1.66666%;
-}
-
-.stripe:nth-child(4) {
-    background-image:linear-gradient(180deg,#E43E55 1%,#E43E55 95%);
-    opacity:.8;
-    top:43.95rem;
-    height:6rem;
-    width:152.49999%;
-    right:-1.66666%;
-}
-
-.stripe:nth-child(5) {
-    background-image:linear-gradient(243deg,#8253A0 6%,#8253A0 43%,#8253A0 73%,#8253A0 99%);
-    opacity:1;
-    top:61.95rem;
-    height:34.5rem;
-    width:106.5%;
-    left:-1.66666%;
-}
-
-.stripe:nth-child(6) {
-    background-image:linear-gradient(243deg,transparent 6%,#4098D2 64%,transparent 77%,transparent 98%);
-    opacity:.8;
-    top:68.1rem;
-    height:28.5rem;
-    width:99%;
-    left:-1.66666%;
-}
-
-.stripe:nth-child(7) {
-    top:64.95rem;
-    width:46.5%;
-}
-
-.stripe:nth-child(7) ,.stripe:nth-child(8) {
-    background-image:linear-gradient(-120deg,#F39253 19%,#F39253 30%,#F39253 45%,rgba(0,38,103,.3) 90%);
-    opacity:1;
-    height:.6rem;
-    right:-1.66666%;
-}
-
-.stripe:nth-child(8) {
-    top:79.95rem;
-    width:51%;
-}
-
-.stripe:nth-child(9) {
-    background-image:linear-gradient(180deg,#4098D2 11%,#4098D2 87%);
-    opacity:.6;
-    top:117rem;
-    height:33rem;
-    width:152.49999%;
-    left:-1.66666%;
-}
-
-.stripe:nth-child(10) {
-    background-image:linear-gradient(106deg,#4098D2 11%,#4098D2 58%,transparent 87%);
-    opacity:.8;
-    top:117rem;
-    height:9rem;
-    width:61.5%;
-    left:-1.66666%;
-}
-
-.stripe:nth-child(11) {
-    background-image:linear-gradient(29deg,#F39253 15%,#F39253 38%,#F39253 66%,transparent);
-    opacity:.8;
-    top:130.5rem;
-    height:1.5rem;
-    width:76.5%;
-    left:-1.66666%;
-}
-
-.stripe:nth-child(12) {
-    background-image:linear-gradient(16deg,transparent 19%,#3CBC93 29%,#3CBC93 39%,#3CBC93 61%,#3CBC93);
-    opacity:.8;
-    top:120rem;
-    height:.75rem;
-    width:76.5%;
-    right:-1.66666%;
-}
 
 @media (max-width: 1024px) {
   body {
@@ -804,7 +683,7 @@ qrcode + span {
 
 /* Set the fixed height of the footer here */
 #footer {
-  background: #002449;
+  background: rgba(48, 44, 50, 1);;
   color: white;
   height: 48px;
   /*overflow: hidden;*/
@@ -1109,7 +988,7 @@ a.v_highlight_more {
 
 .secondary_navbar {
   width: 100%;
-  background: rgba(0, 36, 73, 0.8);
+  background: rgba(54, 50, 56, 0.7);
   position: fixed;
   top: 120px;
   left: 0;
