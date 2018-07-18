@@ -170,8 +170,7 @@ module.exports = function (app, connectionHandler, socket) {
 				socket.emit('data', data);
 
 				newInterval(0, 5000, emitData1);
-				/** @todo Here we are pulling 8640 blocks - logic should be changed */
-				newInterval(1, 300000, emitData2);
+				newInterval(1, 60000, emitData2);
 				newInterval(2, 5000, emitData3);
 			}
 		});
