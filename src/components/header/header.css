@@ -207,7 +207,7 @@
 .navbar-default .navbar-nav > li.open > a,
 .navbar-default .navbar-nav > li a:hover,
 .navbar-default .navbar-nav > li a:focus {
-  background-color: transparent !important;
+  background-color: #363238 !important;
   font-family: Open Sans, sans-serif;
 }
 

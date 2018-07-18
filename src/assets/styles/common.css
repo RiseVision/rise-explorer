@@ -272,7 +272,6 @@ qrcode + span {
   margin: 7px 1px 0  9px;
   padding: 18px 15px;
   border-radius: 3px;
-  background: #013165;
   transition: all ease 200ms;
   -webkit-transition: all ease 200ms;
   -ms-transition: all ease 200ms;
@@ -282,7 +281,7 @@ qrcode + span {
 
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-  background-color: #0288d1;
+  background-color: rgba(255,255,255,0.2);
 }
 
 .navbar-default {
@@ -352,14 +351,14 @@ qrcode + span {
   }
 
   .navbar-default .navbar-nav .dropdown-menu>li>a {
-    background: #013165;
+	border-bottom: 1px solid rgba(255,255,255,0.3);
     line-height: 25px;
     color: white !important;
     padding: 5px 15px 5px 45px;
   }
 
   .navbar-default .navbar-nav .dropdown-menu>li>a:hover {
-    background: #0288d1 !important;
+    background: #27292A !important;
     color: white;
   }
 
