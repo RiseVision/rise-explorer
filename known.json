@@ -1,14 +1,22 @@
 {
-  "address":              {
-	"owner":       "owner",
-	"description": "description"
-  },
-  "1644223775232371040R": {
-	"owner":       "Bittrex",
-	"description": "Main Wallet"
-  },
-  "4736561281125553123R": {
-	"owner":       "RightBTC",
-	"description": "Main Wallet"
-  }
+	"address"             : {
+		"owner"      : "owner",
+		"description": "description"
+	},
+	"1644223775232371040R": {
+		"owner"      : "Bittrex",
+		"description": "Main Wallet"
+	},
+	"4736561281125553123R": {
+		"owner"      : "RightBTC.com",
+		"description": "Main Wallet"
+	},
+	"6186781412293262911R": {
+		"owner"      : "OpenLedger.io",
+		"description": "Main Wallet"
+	},
+	"5465983647188469549R": {
+		"owner"      : "Exrates.me",
+		"description": "Main Wallet"
+	}
 }
