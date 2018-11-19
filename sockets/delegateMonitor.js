@@ -81,7 +81,12 @@ module.exports = function (app, connectionHandler, socket) {
 	const updateDelegate = (delegate, updateForgingTime) => {
 		// Update delegate with forging time
 		if (updateForgingTime) {
-			delegate.forgingTime = tmpData.nextForgers.delegates.indexOf(delegate.publicKey) * app.get('blockTime');
+			// eslint-disable-next-line prefer-const
+			let index = tmpData.nextForgers.delegates.indexOf(delegate.publicKey);
+			delegate.forgingTime = index * app.get('blockTime');
+			if (index === -1) {
+				delegate.forgingTime = null;
+			}
 		}
 
 		// Update delegate with info if should forge in current round

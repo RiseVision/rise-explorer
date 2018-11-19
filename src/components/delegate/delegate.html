@@ -47,9 +47,13 @@
 								<td class="left-padding-xs left-padding-s left-padding-m left-padding-l double"><strong>Approval</strong></td>
 								<td class="right-padding-xs right-padding-s right-padding-m right-padding-l double text-right">{{vm.address.delegate.approval}}%</td>
 							</tr>
-							<tr>
+							<tr  style="text-decoration: line-through">
 								<td class="left-padding-xs left-padding-s left-padding-m left-padding-l double"><strong>Vote weight</strong></td>
 								<td class="right-padding-xs right-padding-s right-padding-m right-padding-l double text-right">{{vm.address.delegate.vote || 0 | currency:$root.currency:$root.decimalPlaces}} <span class="text-muted">{{$root.currency.symbol}}</span></td>
+							</tr>
+							<tr>
+								<td class="left-padding-xs left-padding-s left-padding-m left-padding-l double"><strong>Vote weight</strong></td>
+								<td class="right-padding-xs right-padding-s right-padding-m right-padding-l double text-right">{{vm.address.delegate.votesWeight || 0 | currency:$root.currency:$root.decimalPlaces}} <span class="text-muted">{{$root.currency.symbol}}</span></td>
 							</tr>
 							<tr>
 								<td class="left-padding-xs left-padding-s left-padding-m left-padding-l double"><strong>Forged</strong></td>

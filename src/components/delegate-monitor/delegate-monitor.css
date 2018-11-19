@@ -30,6 +30,13 @@
 .tab-content {
   padding-top: 50px;
 }
+.tab-content tr.excluded {
+  opacity: 0.3;
+
+}
+.tab-content tr.excluded .forging-status, .tab-content tr.excluded .forging-time {
+	opacity: 0;
+}
 
 .big-details span.total-delegates {
   font-weight: 700;

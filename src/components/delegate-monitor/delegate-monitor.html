@@ -247,7 +247,7 @@
 						</div>
 						<div class="col-xs-12 col-sm-3">
 							<div class="forging-total orange">
-								<p class="big-details">{{vm.forgingTotals.missedBlock || 0}}</p>
+								<p class="big-details">{{101 - (vm.forgingTotals.forging || 0)}}</p>
 								<span>Missed block recently</span>
 							</div>
 						</div>
@@ -297,14 +297,14 @@
 								</tr>
 							</tbody>
 							<tbody>
-								<tr data-ng-repeat="d in vm.activeDelegates | orderBy:$root.natural(vm.tables.active.predicate):vm.tables.active.reverse track by d.rate">
+								<tr data-ng-repeat="d in vm.activeDelegates | orderBy:$root.natural(vm.tables.active.predicate):vm.tables.active.reverse track by d.rate" data-ng-class="{excluded: d.forgingTime === null}" >
 									<td class="left-padding-xs left-padding-s left-padding-m left-padding-l double">{{d.rate}}</td>
 									<td>
 										<a data-account-href="d" data-type="delegate">{{d.username}}</a>
 									</td>
 									<td class="hidden-xs hidden-md"><span class="text-muted">{{d.address}}</span></td>
 									<td class="hidden-xs hidden-sm">{{d.forged | currency:$root.currency:$root.decimalPlaces}} <span class="text-muted">{{$root.currency.symbol}}</span></td>
-									<td class="hidden-xs hidden-sm">{{d.forgingTime | forgingTime}}</td>
+									<td class="hidden-xs hidden-sm forging-time">{{d.forgingTime | forgingTime}}</td>
 									<td><i forging-status="d.forgingStatus"></i></td>
 									<td class="right-padding-xs">{{d.productivity || 0}}%</td>
 									<td class="right-padding-s right-padding-m right-padding-l double hidden-xs"><span data-uib-tooltip="{{d.vote | currency:$root.currency:$root.decimalPlaces}} {{$root.currency.symbol}}">{{d.approval}}%</span></td>
