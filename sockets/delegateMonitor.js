@@ -324,7 +324,16 @@ module.exports = function (app, connectionHandler, socket) {
 				data.registrations = res[1];
 				data.votes = res[2];
 				data.nextForgers = cutNextForgers(maxLimitOfNextForgers, res[4].block.height);
+				data.lastBlock = res[4];
 
+				data.roundInfos = {
+					round: Math.ceil(data.lastBlock.block.height / 101),
+					blocksToNext: 0,
+					timeToNext: 0,
+				};
+
+				data.roundInfos.blocksToNext = 1 + (data.roundInfos.round) * 101 - data.lastBlock.block.height;
+				data.roundInfos.timeToNext = data.roundInfos.blocksToNext * app.get('blockTime');
 				log('info', 'Emitting data');
 				socket.emit('data', data);
 			}
@@ -349,6 +358,14 @@ module.exports = function (app, connectionHandler, socket) {
 
 				data.lastBlock = res[0];
 				data.active = updateActive(res[1]);
+				data.roundInfos = {
+					round: Math.ceil(data.lastBlock.block.height / 101),
+					blocksToNext: 0,
+					timeToNext: 0,
+				};
+				data.roundInfos.blocksToNext = 1 + (data.roundInfos.round) * 101 - data.lastBlock.block.height;
+				data.roundInfos.timeToNext = data.roundInfos.blocksToNext * app.get('blockTime');
+
 				data.registrations = res[2];
 				data.votes = res[3];
 				data.nextForgers = cutNextForgers(maxLimitOfNextForgers, res[0].block.height);

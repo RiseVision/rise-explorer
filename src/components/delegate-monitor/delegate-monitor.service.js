@@ -83,6 +83,10 @@ const DelegateMonitor = function ($scope, $rootScope, forgingMonitor) {
 		$scope.worstProductivity = worstProductivity(active.delegates);
 	};
 
+	this.updateRoundInfos = (roundInfos) => {
+		$scope.roundInfos = roundInfos;
+	};
+
 	this.updateLastBlock = (lastBlock) => {
 		$scope.lastBlock = lastBlock.block;
 	};
@@ -135,6 +139,9 @@ AppDelegateMonitor.factory('delegateMonitor',
 			if (res.active) {
 				delegateMonitor.updateActive(res.active);
 				delegateMonitor.updateTotals(res.active);
+			}
+			if (res.roundInfos) {
+				delegateMonitor.updateRoundInfos(res.roundInfos);
 			}
 			if (res.lastBlock) { delegateMonitor.updateLastBlock(res.lastBlock); }
 			if (res.registrations) { delegateMonitor.updateRegistrations(res.registrations); }
