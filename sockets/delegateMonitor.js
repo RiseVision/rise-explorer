@@ -85,7 +85,7 @@ module.exports = function (app, connectionHandler, socket) {
 			let index = tmpData.nextForgers.delegates.indexOf(delegate.publicKey);
 			delegate.forgingTime = index * app.get('blockTime');
 			if (index === -1) {
-				delegate.forgingTime = null;
+				delegate.forgingTime = 200 * app.get('blockTime') // Workaround for tables sorting;
 			}
 		}
 
@@ -95,6 +95,8 @@ module.exports = function (app, connectionHandler, socket) {
 		} else {
 			delegate.isRoundDelegate = true;
 		}
+
+		delegate.isInRound = tmpData.nextForgers.delegates.indexOf(delegate.publicKey) > -1;
 		return delegate;
 	};
 
@@ -323,7 +325,8 @@ module.exports = function (app, connectionHandler, socket) {
 				data.active = updateActive(res[0]);
 				data.registrations = res[1];
 				data.votes = res[2];
-				data.nextForgers = cutNextForgers(maxLimitOfNextForgers, res[4].block.height);
+				data.nextForgers = tmpData.nextForgers.delegates
+					.map(publicKey => findActiveByPublicKey(publicKey));// cutNextForgers(maxLimitOfNextForgers, res[4].block.height);
 				data.lastBlock = res[4];
 
 				data.roundInfos = {
@@ -368,7 +371,8 @@ module.exports = function (app, connectionHandler, socket) {
 
 				data.registrations = res[2];
 				data.votes = res[3];
-				data.nextForgers = cutNextForgers(maxLimitOfNextForgers, res[0].block.height);
+				data.nextForgers = tmpData.nextForgers.delegates
+					.map(publicKey => findActiveByPublicKey(publicKey));// cutNextForgers(maxLimitOfNextForgers, res[0].block.height);
 
 				log('info', 'Emitting new data');
 				socket.emit('data', data);

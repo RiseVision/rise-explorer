@@ -65,6 +65,13 @@ AppServices.service('forgingStatus',
 			status.code = 2;
 		}
 
+		if (status.code === 4 && delegate.cmb === 0) {
+			status.code = 3;
+		} else if (delegate.cmb > 0 && status.code === 5) {
+			// User picked after a long time but cmb > 0 => not forging
+			status.code = 2;
+		}
+
 		delegate.status = [status.code, delegate.rate].join(':');
 		return status;
 	});

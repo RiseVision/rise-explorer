@@ -46,7 +46,8 @@ const DelegateMonitor = function ($scope, $rootScope, forgingMonitor) {
 	};
 
 	const updateForgingTotals = (delegates) => {
-		$scope.forgingTotals = forgingMonitor.getForgingTotals(delegates);
+		$scope.forgingTotals = forgingMonitor.getForgingTotals(delegates
+			.filter(d => d.isInRound));
 	};
 
 	const updateForgingProgress = (totals) => {
