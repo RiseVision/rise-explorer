@@ -296,7 +296,7 @@
 									<th class="hidden-xs hidden-sm"><a href="" data-ng-click="vm.tables.active.setPredicate('forgingTime')" class="sort-order">Forging time <span data-ng-show="vm.tables.active.predicate === 'forgingTime'" data-ng-class="{reverse: vm.tables.active.reverse}"></span></a></th>
 									<th><a href="" data-ng-click="vm.tables.active.setPredicate('status')" class="sort-order">Status <span data-ng-show="vm.tables.active.predicate === 'forgingStatus.rating'" data-ng-class="{reverse: vm.tables.active.reverse}"></span></a></th>
 									<th class="right-padding-xs"><a href="" data-ng-click="vm.tables.active.setPredicate('productivity')" class="sort-order">Productivity <span data-ng-show="vm.tables.active.predicate === 'productivity'" data-ng-class="{reverse: vm.tables.active.reverse}"></span></a></th>
-									<th class="right-padding-s right-padding-m right-padding-l double hidden-xs"><a href="" data-ng-click="vm.tables.active.setPredicate('vote')" class="sort-order">Approval <span data-ng-show="vm.tables.active.predicate === 'vote'" data-ng-class="{reverse: vm.tables.active.reverse}"></span></a></th>
+									<th class="right-padding-s right-padding-m right-padding-l double hidden-xs"><a href="" data-ng-click="vm.tables.active.setPredicate('votesWeight')" class="sort-order" data-uib-tooltip="+/- ~1%">Forging Prob. <span data-ng-show="vm.tables.active.predicate === 'votesWeight'" data-ng-class="{reverse: vm.tables.active.reverse}"></span></a></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -315,7 +315,7 @@
 									<td class="hidden-xs hidden-sm forging-time">{{d.forgingTime | forgingTime}}</td>
 									<td><i forging-status="d.forgingStatus"></i></td>
 									<td class="right-padding-xs">{{d.productivity || 0}}%</td>
-									<td class="right-padding-s right-padding-m right-padding-l double hidden-xs"><span data-uib-tooltip="{{d.vote | currency:$root.currency:$root.decimalPlaces}} {{$root.currency.symbol}}">{{d.approval}}%</span></td>
+									<td class="right-padding-s right-padding-m right-padding-l double hidden-xs"><span data-uib-tooltip="{{d.votesWeight | currency:$root.currency:$root.decimalPlaces}} {{$root.currency.symbol}}">{{d.forgingChances}}%</span></td>
 								</tr>
 							</tbody>
 						</table>

@@ -21,6 +21,7 @@ const logger = require('../utils/logger');
 
 module.exports = function (app, connectionHandler, socket) {
 	const delegates = new api.delegates(app);
+	const forgingChances = new api.forgingChance(app);
 	// eslint-disable-next-line no-unused-vars
 	const connection = new connectionHandler('Delegate Monitor:', socket, this);
 	const maxLimitOfNextForgers = 10;
@@ -66,10 +67,38 @@ module.exports = function (app, connectionHandler, socket) {
 			return cb('getActive (already running)');
 		}
 		running.getActive = true;
-		return delegates.getActive(
-			'preserved',
-			() => { running.getActive = false; cb('Active'); },
-			(res) => { running.getActive = false; cb(null, res); });
+		async.parallel(
+			[
+				(c) => {
+					delegates.getActive(
+						'preserved',
+						() => {
+							c('Active');
+						},
+						(res) => {
+							c(null, res);
+						});
+				},
+				(c) => {
+					forgingChances.getForgingChances(null,
+						() => {
+							c('fc');
+						},
+						(res) => {
+							c(null, res);
+						});
+				},
+			],
+			(err, results) => {
+				running.getActive = false;
+				if (err) return cb(err);
+				results[0].delegates.forEach((r, idx) => {
+					r.forgingChances = parseFloat(results[1][idx].includedProbability);
+					return r;
+				});
+				cb(null, results[0]);
+				return null;
+			});
 	};
 
 	const findActive = delegate =>
