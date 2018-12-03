@@ -19,12 +19,13 @@ const common = require('./common.js');
 const delegates = require('./delegates.js');
 const exchanges = require('./exchanges.js');
 const statistics = require('./statistics.js');
+const forgingChance = require('./forgingChance.js');
 const transactions = require('./transactions.js');
 const handler = require('./handler');
 const config = require('../config');
 
 const routes = [].concat(transactions, accounts, blocks, common,
-	delegates, exchanges, statistics);
+	delegates, exchanges, statistics, forgingChance);
 
 const modules = {};
 const services = {};

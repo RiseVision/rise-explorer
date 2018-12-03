@@ -25,20 +25,28 @@ const DelegateConstructor = function ($rootScope, $stateParams,
 			params: {
 				address: $stateParams.delegateId,
 			},
-		}).then((resp) => {
-			if (resp.data.success) {
-				vm.address = resp.data;
+		})
+			.then((resp) => {
+				$http.get('/api/getForgingChances')
+					.then((fC) => {
+						vm.address.forgingChances = fC.data
+							.filter(f => f.publicKey === vm.address.publicKey)[0];
+					});
 
-				if (!vm.address.delegate) {
-					$state.go('address', { address: $stateParams.delegateId });
+				if (resp.data.success) {
+					vm.address = resp.data;
+
+					if (!vm.address.delegate) {
+						$state.go('address', { address: $stateParams.delegateId });
+					}
+				} else {
+					$state.go('home');
 				}
-			} else {
-				$state.go('home');
-			}
-		}).catch(() => {
-			$location.path('/');
-		});
+			}).catch(() => {
+				$location.path('/');
+			});
 	};
+
 
 	vm.address = {
 		address: $stateParams.delegateId,

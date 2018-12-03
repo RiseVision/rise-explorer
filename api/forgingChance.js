@@ -13,14 +13,10 @@
  * Removal or modification of this copyright notice is prohibited.
  *
  */
-module.exports = {
-	accounts: require('./accounts.js'),
-	blocks: require('./blocks.js'),
-	candles: require('./candles.js'),
-	common: require('./common.js'),
-	delegates: require('./delegates.js'),
-	orders: require('./orders.js'),
-	statistics: require('./statistics.js'),
-	transactions: require('./transactions.js'),
-	forgingChance: require('./forgingChance.js'),
-};
+module.exports = [
+	{
+		path: 'getForgingChances',
+		service: 'forgingChance',
+		params: () => undefined,
+	},
+];
