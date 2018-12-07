@@ -27,7 +27,7 @@ const forgingStatus = AppTools.directive('forgingStatus', $sce => ({
 	transclude: true,
 	link(scope, element) {
 		const updateStatus = () => {
-			element.removeClass('fa-circle-o').addClass('fa-circle');
+			element.removeClass('fa-circle-o red orange green').addClass('fa-circle');
 			scope.tooltip = {};
 
 			switch (scope.forgingStatus.code) {

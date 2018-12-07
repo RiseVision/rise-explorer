@@ -24,7 +24,6 @@ module.exports = function (app, connectionHandler, socket) {
 	const forgingChances = new api.forgingChance(app);
 	// eslint-disable-next-line no-unused-vars
 	const connection = new connectionHandler('Delegate Monitor:', socket, this);
-	const maxLimitOfNextForgers = 10;
 	let intervals = [];
 	const data = {};
 	// Only used in various calculations, will not be emitted directly
@@ -51,16 +50,6 @@ module.exports = function (app, connectionHandler, socket) {
 
 	const findActiveByPublicKey = publicKey =>
 		data.active.delegates.find(d => d.publicKey === publicKey);
-
-	const cutNextForgers = (maxLimit, height) => {
-		const roundLength = 101;
-		const limit = roundLength - (height % roundLength);
-		const next10Forgers = tmpData.nextForgers.delegates.slice(0, Math.min(limit, maxLimit));
-		// Workaround for LiskHQ/lisk#1998, when height % roundLength == 0
-		// list of next10Forgers is unknown
-		if ((height % roundLength) === 0) return [];
-		return next10Forgers.map(publicKey => findActiveByPublicKey(publicKey));
-	};
 
 	const getActive = (cb) => {
 		if (running.getActive) {
@@ -114,7 +103,7 @@ module.exports = function (app, connectionHandler, socket) {
 			let index = tmpData.nextForgers.delegates.indexOf(delegate.publicKey);
 			delegate.forgingTime = index * app.get('blockTime');
 			if (index === -1) {
-				delegate.forgingTime = 200 * app.get('blockTime') // Workaround for tables sorting;
+				delegate.forgingTime = 200 * app.get('blockTime'); // Workaround for tables sorting;
 			}
 		}
 
@@ -142,6 +131,24 @@ module.exports = function (app, connectionHandler, socket) {
 			},
 			(res) => {
 				running.getLastBlock = false;
+				if (data.active && data.active.delegates) {
+					// eslint-disable-next-line
+					var b = res.block;
+					// eslint-disable-next-line
+					var existing = findActiveByBlock(res.block);
+					if (existing) {
+						if (!existing.blocks || !existing.blocks[0] ||
+							existing.blocks[0].timestamp < b.timestamp) {
+							existing.blocks = [];
+							existing.blocks.push(b);
+							existing.blocksAt = moment();
+							existing = updateDelegate(existing, false);
+							// eslint-disable-next-line no-use-before-define
+							emitDelegate(existing);
+						}
+					}
+				}
+				// emitDelegate(existing);
 				cb(null, res);
 			});
 	};
