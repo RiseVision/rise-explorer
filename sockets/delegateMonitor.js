@@ -107,13 +107,6 @@ module.exports = function (app, connectionHandler, socket) {
 			}
 		}
 
-		// Update delegate with info if should forge in current round
-		if (tmpData.roundDelegates.indexOf(delegate.publicKey) === -1) {
-			delegate.isRoundDelegate = false;
-		} else {
-			delegate.isRoundDelegate = true;
-		}
-
 		delegate.isInRound = tmpData.nextForgers.delegates.indexOf(delegate.publicKey) > -1;
 		return delegate;
 	};
