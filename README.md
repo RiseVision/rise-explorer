@@ -62,7 +62,7 @@ These programs and resources are required to install and run Lisk Explorer
 
 - Tool chain components -- Used for compiling dependencies
 
-  `sudo apt-get install -y python build-essential automake autoconf libtool`
+  `sudo apt-get install -y python build-essential automake autoconf libtool libpng-dev`
 
 ## Installation Steps
 
