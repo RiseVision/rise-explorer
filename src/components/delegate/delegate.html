@@ -57,11 +57,11 @@
 							</tr>
 							<tr>
 								<td class="left-padding-xs left-padding-s left-padding-m left-padding-l double"><strong>Forged</strong></td>
-								<td class="right-padding-xs right-padding-s right-padding-m right-padding-l double text-right">{{vm.address.delegate.forged || 0 | currency:$root.currency:$root.decimalPlaces}} <span class="text-muted">{{$root.currency.symbol}}</span></td>
+								<td class="right-padding-xs right-padding-s right-padding-m right-padding-l double text-right">{{vm.address.delegate.forged.rewards || 0 | currency:$root.currency:$root.decimalPlaces}} <span class="text-muted">{{$root.currency.symbol}}</span></td>
 							</tr>
 							<tr>
 								<td class="left-padding-xs left-padding-s left-padding-m left-padding-l double"><strong>Blocks</strong></td>
-								<td class="right-padding-xs right-padding-s right-padding-m right-padding-l double text-right">{{vm.address.delegate.producedblocks}} <span class="text-muted">({{vm.address.delegate.missedblocks}} missed)</span></td>
+								<td class="right-padding-xs right-padding-s right-padding-m right-padding-l double text-right">{{vm.address.delegate.producedBlocks}} <span class="text-muted">({{vm.address.delegate.missedBlocks}} missed)</span></td>
 							</tr>
 							<tr>
 								<td class="left-padding-xs left-padding-s left-padding-m left-padding-l double"><strong>Current <abbr title="Consecutive Missed Blocks">CMB</abbr></strong></td>
