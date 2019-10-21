@@ -14,7 +14,7 @@
  *
  */
 const config = {};
-config.blockTime = 27;
+config.blockTime = 30;
 config.lisk = {};
 config.freegeoip = {};
 config.redis = {};
