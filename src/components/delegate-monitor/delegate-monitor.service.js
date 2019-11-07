@@ -115,7 +115,7 @@ const DelegateMonitor = function ($scope, $rootScope, forgingMonitor) {
 
 		let found = false;
 		const existing = $scope.activeDelegates.filter((d) => {
-			if (!found && (d.publicKey === delegate.publicKey)) {
+			if (!found && (d.forgingPK === delegate.forgingPK)) {
 				found = true;
 				return true;
 			}
@@ -152,7 +152,7 @@ AppDelegateMonitor.factory('delegateMonitor',
 		});
 
 		ns.on('delegate', (res) => {
-			if (res.publicKey) {
+			if (res.forgingPK) {
 				delegateMonitor.updateLastBlocks(res);
 			}
 		});
