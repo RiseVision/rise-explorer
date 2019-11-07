@@ -48,9 +48,12 @@ const accountHref = AppTools.directive('accountHref', () => {
 			if ($attrs.type === 'sender' || $attrs.type === 'recipient') {
 				username = getUserName($scope, $attrs);
 				id = $scope.accountHref[joinCameCased($attrs.type, 'id')];
-			} else {
+			} else if ($scope.accountHref) {
 				username = $attrs.type === 'delegate' && $scope.accountHref.username;
 				id = $scope.id ? $scope.id : $scope.accountHref.address;
+			} else {
+				username = 'unknown';
+				id = 'unknown';
 			}
 
 			$attrs.$set('href', username ? `/delegate/${id}` : `/address/${id}`);

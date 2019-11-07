@@ -91,23 +91,23 @@ module.exports = function (app, connectionHandler, socket) {
 	};
 
 	const findActive = delegate =>
-		data.active.delegates.find(d => d.publicKey === delegate.publicKey);
+		data.active.delegates.find(d => d.forgingPK === delegate.forgingPK);
 
 	const findActiveByBlock = block =>
-		data.active.delegates.find(d => d.publicKey === block.generatorPublicKey);
+		data.active.delegates.find(d => d.forgingPK === block.generatorPublicKey);
 
 	const updateDelegate = (delegate, updateForgingTime) => {
 		// Update delegate with forging time
 		if (updateForgingTime) {
 			// eslint-disable-next-line prefer-const
-			let index = tmpData.nextForgers.delegates.indexOf(delegate.publicKey);
+			let index = tmpData.nextForgers.delegates.indexOf(delegate.forgingPK);
 			delegate.forgingTime = index * app.get('blockTime');
 			if (index === -1) {
 				delegate.forgingTime = 200 * app.get('blockTime'); // Workaround for tables sorting;
 			}
 		}
 
-		delegate.isInRound = tmpData.nextForgers.delegates.indexOf(delegate.publicKey) > -1;
+		delegate.isInRound = tmpData.nextForgers.delegates.indexOf(delegate.forgingPK) > -1;
 		return delegate;
 	};
 
@@ -197,7 +197,7 @@ module.exports = function (app, connectionHandler, socket) {
 			});
 	};
 
-	const delegateName = delegate => `${delegate.username}[${delegate.rate}]`;
+	const delegateName = delegate => `${delegate.username}[${delegate.infos && delegate.infos.productivity || '??'}]`;
 
 	const emitDelegate = (delegate) => {
 		log('info', `Emitting last blocks for: ${delegateName(delegate)}`);
@@ -229,7 +229,15 @@ module.exports = function (app, connectionHandler, socket) {
 			(result, callback) => {
 				// Set last block and his delegate (we will emit it later in emitData)
 				data.lastBlock.block = result.blocks[0];
+
 				const lastBlockDelegate = findActiveByBlock(data.lastBlock.block);
+
+				if (!lastBlockDelegate) {
+					// couldnt find the delegate who minded the last block
+					callback('couldnt find the delegate who minded the last block ID ' + result.blocks[0].id);
+					return;
+				}
+
 				data.lastBlock.block.delegate = {
 					username: lastBlockDelegate.username,
 					address: lastBlockDelegate.address,
@@ -267,7 +275,7 @@ module.exports = function (app, connectionHandler, socket) {
 						return cb(null);
 					}
 					return delegates.getLastBlocks(
-						{ publicKey: delegate.publicKey,
+						{ publicKey: delegate.forgingPK,
 							limit: 1 },
 						(res) => {
 							log('error', `Error retrieving last blocks for: ${delegateName(delegate)}`);
