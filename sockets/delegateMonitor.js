@@ -49,7 +49,7 @@ module.exports = function (app, connectionHandler, socket) {
 	const log = (level, msg) => logger[level]('Delegate Monitor:', msg);
 
 	const findActiveByPublicKey = publicKey =>
-		data.active.delegates.find(d => d.publicKey === publicKey);
+		data.active.delegates.find(d => d.forgingPK === publicKey);
 
 	const getActive = (cb) => {
 		if (running.getActive) {
@@ -205,7 +205,8 @@ module.exports = function (app, connectionHandler, socket) {
 	};
 
 	const getLastBlocks = (init) => {
-		const limit = init ? 100 : 2;
+//		const limit = init ? 100 : 2;
+		const limit = 1;
 
 		if (running.getLastBlocks) {
 			return log('error', 'getLastBlocks (already running)');
@@ -231,10 +232,11 @@ module.exports = function (app, connectionHandler, socket) {
 				data.lastBlock.block = result.blocks[0];
 
 				const lastBlockDelegate = findActiveByBlock(data.lastBlock.block);
+//				const lastBlockDelegate = findActiveByPublicKey(data.lastBlock.block.generatorPublicKey);
 
 				if (!lastBlockDelegate) {
-					// couldnt find the delegate who minded the last block
-					callback('couldnt find the delegate who minded the last block ID ' + result.blocks[0].id);
+					// TODO: error is thrown when a delegate is outside of 101 (so, not an active forger)
+					callback('Couldn\'t find the delegate that forged the last block. ID: ' + result.blocks[0].id + ' | publicKey: ' + result.blocks[0].generatorPublicKey);
 					return;
 				}
 

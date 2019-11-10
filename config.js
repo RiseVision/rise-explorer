@@ -23,9 +23,11 @@ config.port = 6040; // Port to listen on
 
 /**
  * LISK node
- */
 config.lisk.host = process.env.LISK_HOST || '127.0.0.1';
 config.lisk.port = process.env.LISK_PORT || 5555;
+*/
+config.lisk.host = 'core-balancer.rise.vision';
+config.lisk.port = 80;
 
 /**
  * FreeGeoIP server
@@ -55,7 +57,7 @@ config.log.level = 'info';
  * Header price tickers, Currency switcher
  */
 // Exchange rates support (true - enabled, false - disabled)
-config.exchangeRates.enabled = true;
+config.exchangeRates.enabled = false;
 // Interval in ms for checking exchange rates (default: 30 seconds)
 config.exchangeRates.updateInterval = 30000;
 
