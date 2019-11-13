@@ -35,7 +35,7 @@
 							<tr data-ng-repeat="address in vm.topAccounts.results track by $index">
 								<td class="left-padding-s left-padding-m left-padding-l double hidden-xs">{{$index + 1}}</td>
 								<td class="left-padding-xs address-cell">
-									<a href="/address/{{address.address}}" class="hidden-xs">{{address.address}}</a>
+									<a href="/address/{{address.address}}" class="hidden-xs">{{address.address  | middleEllipsis:10}}</a>
 									<a href="/address/{{address.address}}" class="visible-xs">{{address.address | middleEllipsis:10}}</a>
 								</td>
 								<td class="right-padding-xs text-right">
