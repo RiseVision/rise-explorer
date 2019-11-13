@@ -310,7 +310,7 @@
 									<td>
 										<a data-account-href="d" data-type="delegate">{{d.username}}</a>
 									</td>
-									<td class="hidden-xs hidden-md"><span class="text-muted">{{d.address}}</span></td>
+									<td class="hidden-xs hidden-md"><span class="ellipsis text-muted">{{d.address | middleEllipsis:20}}</span></td>
 									<td class="hidden-xs hidden-sm">{{d.forged | currency:$root.currency:$root.decimalPlaces}} <span class="text-muted">{{$root.currency.symbol}}</span></td>
 									<td class="hidden-xs hidden-sm forging-time">{{d.forgingTime | forgingTime}}</td>
 									<td><i forging-status="d.forgingStatus"></i></td>
