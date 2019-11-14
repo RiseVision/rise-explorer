@@ -29,12 +29,12 @@
 	<a class="visible-md" href="/tx/{{tx.id}}">{{tx.timestamp | timestamp }}</a>
 </td>
 <td data-title="Sender">
-	<a data-ng-if="tx.senderId !== address" data-account-href="tx" data-type="sender">{{tx | txSender}}</a>
-	<span data-ng-if="tx.senderId === address">{{tx | txSender}}</span>
+	<a class="ellipsis" data-ng-if="tx.senderId !== address" data-account-href="tx" data-type="sender">{{tx | txSender | middleEllipsis:20}}</a>
+	<span class="ellipsis" data-ng-if="tx.senderId === address">{{tx | txSender | middleEllipsis:20}}</span>
 </td>
 <td data-title="Recipient">
-	<a data-ng-if="tx.type == 0 && tx.recipientId !== address" data-account-href="tx" data-type="recipient">{{tx | txRecipient}}</a>
-	<span data-ng-if="tx.type == 0 && tx.recipientId === address">{{tx | txRecipient}}</span>
+	<a class="ellipsis" data-ng-if="tx.type == 0 && tx.recipientId !== address" data-account-href="tx" data-type="recipient">{{tx | txRecipient | middleEllipsis:20}}</a>
+	<span class="ellipsis" data-ng-if="tx.type == 0 && tx.recipientId === address">{{tx | txRecipient | middleEllipsis:20}}</span>
 	<span data-ng-if="tx.type >= 1">{{tx | txType}}</span>
 </td>
 <td data-title="Amount" class="amount text-right">
