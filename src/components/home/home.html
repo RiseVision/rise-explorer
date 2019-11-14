@@ -56,12 +56,12 @@
 								</a>
 							</td>
 							<td class="left-padding-xs">
-								<a class="ellipsis" data-ng-show="tx.type == 0" data-account-href="tx" data-type="recipient">
+								<a class="ellipsis" data-ng-show="tx.type == 0 || tx.type == 10" data-account-href="tx" data-type="recipient">
 									<span class="pull-right hidden-xs">{{tx | txRecipient | middleEllipsis:20}}</span>
 									<span class="pull-left visible-xs">{{tx | txRecipient | middleEllipsis:10}}</span>
 								</a>
 								<!--<span class="ellipsis" data-ng-show="tx.type >= 1">-->
-								<a href="/address/{{tx | txRecipient}}" class="ellipsis" data-ng-show="tx.type >= 1">
+								<a href="/address/{{tx | txRecipient}}" class="ellipsis" data-ng-show="tx.type >= 1 && tx.type != 10">
 									<span class="pull-right hidden-xs">{{tx | txRecipient | middleEllipsis:20}}</span>
 									<span class="pull-left visible-xs">{{tx | txRecipient | middleEllipsis:12}}</span>
 								<!--</span>-->
