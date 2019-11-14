@@ -38,6 +38,7 @@ const get = url => new Promise((resolve, reject) => {
 	});
 });
 
+// @crypt0jan: Deprecated as of v2!! Addresses have letters now...
 const parseAddress = function (address) {
 	return address.replace('l', 'L');
 };

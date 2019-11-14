@@ -49,7 +49,8 @@
 							<td class="left-padding-xs left-padding-s left-padding-m left-padding-l double hidden-xs"><a class="ellipsis" href="/tx/{{tx.id}}">{{tx.id}}</a></td>
 							<td class="text-right hidden-xs hidden-sm hidden-md"><span class="ellipsis">{{tx.timestamp | timestamp}}<span></td>
 							<td class="left-padding-xs">
-								<a class="ellipsis" data-account-href="tx" data-type="sender">
+								<!--<a class="ellipsis" data-account-href="tx" data-type="sender">-->
+								<a href="/address/{{tx | txSender}}" class="ellipsis">
 									<span class="pull-right hidden-xs">{{tx | txSender | middleEllipsis:20}}</span>
 									<span class="pull-left visible-xs">{{tx | txSender | middleEllipsis:10}}</span>
 								</a>
@@ -59,10 +60,12 @@
 									<span class="pull-right hidden-xs">{{tx | txRecipient | middleEllipsis:20}}</span>
 									<span class="pull-left visible-xs">{{tx | txRecipient | middleEllipsis:10}}</span>
 								</a>
-								<span class="ellipsis" data-ng-show="tx.type >= 1">
+								<!--<span class="ellipsis" data-ng-show="tx.type >= 1">-->
+								<a href="/address/{{tx | txRecipient}}" class="ellipsis" data-ng-show="tx.type >= 1">
 									<span class="pull-right hidden-xs">{{tx | txRecipient | middleEllipsis:20}}</span>
 									<span class="pull-left visible-xs">{{tx | txRecipient | middleEllipsis:12}}</span>
-								</span>
+								<!--</span>-->
+								</a>
 							</td>
 							<td class="right-padding-xs right-padding-s right-padding-m text-right">
 								<span class="ellipsis hidden-xs">{{tx.amount | currency:$root.currency:$root.decimalPlaces}} {{$root.currency.symbol}}</span>
