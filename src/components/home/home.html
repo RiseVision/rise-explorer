@@ -66,6 +66,10 @@
 									<span class="pull-left visible-xs">{{tx | txRecipient | middleEllipsis:12}}</span>
 								<!--</span>-->
 								</a>
+								<span class="ellipsis" data-ng-show="tx.type == 13">
+									<span class="pull-right hidden-xs">Vote</span>
+									<span class="pull-left visible-xs">Vote</span>
+								</span>
 							</td>
 							<td class="right-padding-xs right-padding-s right-padding-m text-right">
 								<span class="ellipsis hidden-xs">{{tx.amount | currency:$root.currency:$root.decimalPlaces}} {{$root.currency.symbol}}</span>
