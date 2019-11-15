@@ -66,6 +66,10 @@
 									<span class="pull-left visible-xs">{{tx | txRecipient | middleEllipsis:12}}</span>
 								<!--</span>-->
 								</a>
+								<span class="ellipsis" data-ng-show="tx.type == 11">
+									<span class="pull-right hidden-xs">Second signature</span>
+									<span class="pull-left visible-xs">Second signature</span>
+								</span>
 								<span class="ellipsis" data-ng-show="tx.type == 12">
 									<span class="pull-right hidden-xs">Delegate registration</span>
 									<span class="pull-left visible-xs">Delegate registration</span>
