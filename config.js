@@ -30,8 +30,8 @@ config.lisk.port = process.env.LISK_PORT || 4000;
 /**
  * FreeGeoIP server
  */
-config.freegeoip.host = process.env.FREEGEOIP_HOST || '127.0.0.1';
-config.freegeoip.port = process.env.FREEGEOIP_PORT || 8080;
+config.freegeoip.host = process.env.FREEGEOIP_HOST || 'freegeoip.app';
+config.freegeoip.port = process.env.FREEGEOIP_PORT || 80;
 
 /**
  * Redis server
